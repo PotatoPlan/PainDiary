@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">PainDiaryApp</string>
+    <string name="mapbox_access_token">USE YOUR OWN KEY</string>
+</resources>

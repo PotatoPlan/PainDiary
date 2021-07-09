@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="176dp"
+    android:background="#F4FFEC"
+    android:gravity="bottom"
+    android:padding="16dp">
+
+    <TextView
+        android:id="@+id/textView10"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingBottom="8dp"
+        android:text="G'day"
+        android:textColor="#1DDE7D"
+        android:textSize="30sp" />
+
+    <Button
+        android:id="@+id/logout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Logout"
+        android:backgroundTint="#1DDE7D" />
+
+
+</LinearLayout>

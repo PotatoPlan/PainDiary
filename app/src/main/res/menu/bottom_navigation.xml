@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/pain_location"
+        android:title="Pain Location"
+        android:icon="@drawable/ic_people"/>
+
+    <item
+        android:id="@+id/steps_taken"
+        android:title="Steps Taken"
+        android:icon="@drawable/ic_walking"/>
+
+    <item
+        android:id="@+id/line_chart"
+        android:title="Pain and Weather"
+        android:icon="@drawable/ic_baseline_data_exploration_24" />
+</menu>
