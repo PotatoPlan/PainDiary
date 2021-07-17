@@ -40,90 +40,20 @@ public class ReportsPainLocation extends Fragment {
             public void onChanged(List<PainRecord> painRecords) {
                 // Initialise the Pie Chart Entries
                 List<PieEntry> entries = new ArrayList<>();
-                // Set Counters for each pain location
-                int numberOfBack = 0;
-                int numberOfNeck = 0;
-                int numberOfHead = 0;
-                int numberOfKnees = 0;
-                int numberOfHips = 0;
-                int numberOfAbdomen = 0;
-                int numberOfElbows = 0;
-                int numberOfShoulders = 0;
-                int numberOfShins = 0;
-                int numberOfJaw = 0;
-                int numberOfFacial = 0;
+                Map<String, Integer> painCount = new HashMap<>();
                 for (PainRecord temp : painRecords) {
+                    String painLocate = temp.painLocation;
                     // Counters will increase if there are more data entries
-                    switch (temp.painLocation) {
-                        case "back":
-                            numberOfBack++;
-                            break;
-                        case "neck":
-                            numberOfNeck++;
-                            break;
-                        case "head":
-                            numberOfHead++;
-                            break;
-                        case "knees":
-                            numberOfKnees++;
-                            break;
-                        case "hips":
-                            numberOfHips++;
-                            break;
-                        case "abdomen":
-                            numberOfAbdomen++;
-                            break;
-                        case "elbows":
-                            numberOfElbows++;
-                            break;
-                        case "shoulders":
-                            numberOfShoulders++;
-                            break;
-                        case "shins":
-                            numberOfShins++;
-                            break;
-                        case "jaw":
-                            numberOfJaw++;
-                            break;
-                        default:
-                            numberOfFacial++;
-                            break;
-                    }
+                    painCount.put(painLocate, painCount.getOrDefault(painLocate, 0) + 1);
                 }
-
+                
 // --------------------For the Pie Chart, only non-zero values will be included in the chart--------------------
-                if (numberOfBack > 0) {
-                    entries.add(new PieEntry(numberOfBack, "Back"));
-                }
-                if (numberOfNeck > 0 ) {
-                    entries.add(new PieEntry(numberOfNeck, "Neck"));
-                }
-                if (numberOfHead > 0 ) {
-                    entries.add(new PieEntry(numberOfHead, "Head"));
-                }
-                if (numberOfKnees > 0 ) {
-                    entries.add(new PieEntry(numberOfKnees, "Knees"));
-                }
-                if (numberOfHips > 0 ) {
-                    entries.add(new PieEntry(numberOfHips, "Hips"));
-                }
-                if (numberOfAbdomen > 0 ) {
-                    entries.add(new PieEntry(numberOfAbdomen, "Abdomen"));
-                }
-                if (numberOfElbows > 0 ) {
-                    entries.add(new PieEntry(numberOfElbows, "Elbows"));
-                }
-                if (numberOfShoulders > 0 ) {
-                    entries.add(new PieEntry(numberOfShoulders, "Shoulders"));
-                }
-                if (numberOfShins > 0 ) {
-                    entries.add(new PieEntry(numberOfShins, "Shins"));
-                }
-                if (numberOfJaw > 0 ) {
-                    entries.add(new PieEntry(numberOfJaw, "Jaw"));
-                }
-                if (numberOfFacial > 0 ) {
-                    entries.add(new PieEntry(numberOfFacial, "Facial"));
+
+                for (String location : painCount.keySet()) {
+                    int val = painCount.get(location)
+                    if (val != 0) {
+                        entries.add(new PieEntry(val, location));
+                    }
                 }
 
                 PieDataSet set = new PieDataSet(entries, "");
