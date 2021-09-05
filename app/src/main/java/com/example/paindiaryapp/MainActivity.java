@@ -136,21 +136,12 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
         int remindHour = hourOfDay;
         int remindMinute = minute - 2;
-        if (minute == 0) {
-            remindMinute = 58;
-            remindHour = remindHour - 1;
-        }
-        if (minute == 1) {
-            remindMinute = 59;
-            remindHour = remindHour - 1;
-        }
-        if (hourOfDay == 0 && minute == 0) {
-            remindMinute = 58;
-            remindHour = 23;
-        }
-        if (hourOfDay == 0 && minute == 1) {
-            remindMinute = 59;
-            remindHour = 23;
+        if (minute <= 1) {
+            remindMinute = 58 + minute;
+            remindHour--;
+            if (hourOfDay == 0) {
+                remindHour = 23;
+            }
         }
 
 //        String hour = Integer.toString(remindHour);
